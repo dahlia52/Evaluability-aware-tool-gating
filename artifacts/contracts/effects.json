@@ -1,0 +1,121 @@
+{
+  "VehicleControlAPI.startEngine": [
+    "engine_state"
+  ],
+  "VehicleControlAPI.fillFuelTank": [
+    "fuelLevel"
+  ],
+  "VehicleControlAPI.lockDoors": [
+    "doorStatus",
+    "remainingUnlockedDoors"
+  ],
+  "VehicleControlAPI.adjustClimateControl": [
+    "acMode",
+    "acTemperature",
+    "fanSpeed"
+  ],
+  "VehicleControlAPI.setHeadlights": [
+    "headLightStatus"
+  ],
+  "VehicleControlAPI.activateParkingBrake": [
+    "_parkingBrakeForce",
+    "_slopeAngle",
+    "parkingBrakeStatus"
+  ],
+  "VehicleControlAPI.pressBrakePedal": [
+    "_brakePedalForce",
+    "brakePedalStatus"
+  ],
+  "VehicleControlAPI.releaseBrakePedal": [
+    "_brakePedalForce",
+    "brakePedalStatus"
+  ],
+  "VehicleControlAPI.setCruiseControl": [
+    "cruiseStatus",
+    "distanceToNextVehicle"
+  ],
+  "VehicleControlAPI.set_navigation": [
+    "destination"
+  ],
+  "TradingBot.cancel_order": [
+    "orders"
+  ],
+  "TradingBot.place_order": [
+    "order_counter",
+    "orders"
+  ],
+  "TradingBot.withdraw_funds": [
+    "account_info"
+  ],
+  "TradingBot.trading_login": [
+    "authenticated"
+  ],
+  "TradingBot.trading_logout": [
+    "authenticated"
+  ],
+  "TradingBot.fund_account": [
+    "account_info"
+  ],
+  "TravelAPI.authenticate_travel": [
+    "access_token",
+    "token_expires_in",
+    "token_scope",
+    "token_type",
+    "user_first_name",
+    "user_last_name"
+  ],
+  "TravelAPI.register_credit_card": [
+    "credit_card_list"
+  ],
+  "TravelAPI.get_flight_cost": [
+    "_flight_cost_lookup"
+  ],
+  "TravelAPI.book_flight": [
+    "booking_record",
+    "credit_card_list"
+  ],
+  "TravelAPI.cancel_booking": [
+    "credit_card_list"
+  ],
+  "TravelAPI.set_budget_limit": [
+    "budget_limit"
+  ],
+  "TravelAPI.purchase_insurance": [
+    "credit_card_list"
+  ],
+  "GorillaFileSystem.cd": [
+    "_current_dir"
+  ],
+  "TicketAPI.create_ticket": [
+    "ticket_counter"
+  ],
+  "TicketAPI.ticket_login": [
+    "current_user"
+  ],
+  "TicketAPI.logout": [
+    "current_user"
+  ],
+  "MessageAPI.message_login": [
+    "current_user"
+  ],
+  "MessageAPI.send_message": [
+    "message_count"
+  ],
+  "MessageAPI.add_contact": [
+    "user_count",
+    "user_map"
+  ],
+  "TwitterAPI.authenticate_twitter": [
+    "authenticated"
+  ],
+  "TwitterAPI.post_tweet": [
+    "tweet_counter",
+    "tweets"
+  ],
+  "TwitterAPI.retweet": [
+    "retweets"
+  ],
+  "TwitterAPI.comment": [
+    "comments"
+  ]
+}

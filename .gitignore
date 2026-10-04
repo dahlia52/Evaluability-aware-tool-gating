@@ -1,0 +1,61 @@
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Generated experiment data
+out/
+logs/
+.pids/
+wandb/
+checkpoints/
+*.ckpt
+*.safetensors
+
+# Local BFCL checkout and model caches
+gorilla/
+.cache/
+.huggingface/
+
+# Agent/editor state
+.omc/
+.omx/
+.codex/
+.claude/
+.idea/
+.vscode/
+*.swp
+
+# Paper sources, submission files, and local backups
+docs/
+paper/
+refs/
+HCLT_Template_2025/
+.backup/
+
+# LaTeX build products outside the ignored paper directories
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

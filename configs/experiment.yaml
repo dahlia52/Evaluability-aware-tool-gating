@@ -1,0 +1,65 @@
+paper: "Pre-Call Evaluability-Aware Tool Gating for On-Device Small Language Models"
+bfcl_commit: "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8"
+
+models:
+  - id: kakaocorp/kanana-2-1.3b-instruct
+    short: kanana-1.3b
+    active_parameters_b: 1.3
+    parser: qwen3_coder
+    trust_remote_code: true
+  - id: Qwen/Qwen3.5-2B
+    short: qwen35-2b
+    active_parameters_b: 2
+    parser: qwen3_coder
+    disable_thinking: true
+  - id: kakaocorp/kanana-2-3b-instruct
+    short: kanana-3b
+    active_parameters_b: 3
+    parser: qwen3_coder
+    trust_remote_code: true
+  - id: kakaocorp/kanana-2-30b-a3b-instruct
+    short: kanana-30b
+    active_parameters_b: 3
+    total_parameters_b: 30
+    parser: hermes
+    trust_remote_code: true
+  - id: Qwen/Qwen3.5-4B
+    short: qwen35-4b
+    active_parameters_b: 4
+    parser: qwen3_coder
+    disable_thinking: true
+  - id: Qwen/Qwen3.5-9B
+    short: qwen35-9b
+    active_parameters_b: 9
+    parser: qwen3_coder
+    disable_thinking: true
+
+conditions:
+  B0:  {exposure: none,   blocked: annotate, gate: false, repair: false}
+  B1:  {exposure: none,   blocked: annotate, gate: false, repair: false, inject_state: true}
+  B2:  {exposure: none,   blocked: annotate, gate: false, repair: false, inject_state: true, inject_preconditions: true}
+  B3:  {exposure: binary, blocked: annotate, gate: false, repair: false, inject_state: true, inject_preconditions: true}
+  B3r: {exposure: binary, blocked: remove,   gate: false, repair: false, inject_state: true, inject_preconditions: true}
+  M1a: {exposure: tri,    blocked: annotate, gate: false, repair: false, inject_state: true, inject_preconditions: true}
+  M1b: {exposure: tri,    blocked: remove,   gate: false, repair: false, inject_state: true, inject_preconditions: true}
+  M2:  {exposure: tri,    blocked: annotate, gate: true,  repair: false, inject_state: true, inject_preconditions: true}
+  M2b: {exposure: tri,    blocked: remove,   gate: true,  repair: false, inject_state: true, inject_preconditions: true}
+  M3:  {exposure: tri,    blocked: annotate, gate: true,  repair: true,  inject_state: true, inject_preconditions: true}
+  M3b: {exposure: tri,    blocked: remove,   gate: true,  repair: true,  inject_state: true, inject_preconditions: true}
+
+data:
+  splits: [base, miss_func, miss_param, long_context]
+  instances_per_split: 200
+  korean_models: [kanana-1.3b, kanana-3b, qwen35-4b]
+  korean_conditions: [B0, B3, B3r, M1a, M1b, M2, M2b, M3, M3b]
+
+inference:
+  backend: vllm
+  temperature: 0.0
+  max_model_len: 32768
+  max_tokens: 1024
+
+artifacts:
+  preconditions: artifacts/contracts/preconditions.json
+  effects: artifacts/contracts/effects.json
+  output_dir: out
